@@ -3,7 +3,7 @@
  * Provides offline caching and faster repeat loads.
  */
 
-const CACHE_NAME = 'codetrackr-v1';
+const CACHE_NAME = 'codetrackr-v2';
 const STATIC_ASSETS = [
     '/',
     '/index.html',
