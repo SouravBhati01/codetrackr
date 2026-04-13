@@ -903,7 +903,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return '<div class="section-card"><div class="section-header">' +
             svgIcon('<rect x="3" y="3" width="18" height="18" rx="2"/><rect x="7" y="7" width="3" height="3"/><rect x="14" y="7" width="3" height="3"/><rect x="7" y="14" width="3" height="3"/><rect x="14" y="14" width="3" height="3"/>') +
             '<h3>Activity Graph</h3><span class="sub-info">Last 52 weeks</span></div>' +
-            mh + '<div class="heatmap-wrap"><div class="heatmap-grid">' + weeks + '</div></div>' +
+            '<div class="heatmap-wrap"><div class="heatmap-inner">' + mh + '<div class="heatmap-grid">' + weeks + '</div></div></div>' +
             '<div class="heatmap-footer"><span><strong>' + total + '</strong> submissions &middot; <strong>' + days + '</strong> active days &middot; <strong>' + streak + '</strong> day streak</span>' +
             '<div class="heatmap-legend"><span>Less</span><div class="hm"></div><div class="hm" data-l="1"></div><div class="hm" data-l="2"></div><div class="hm" data-l="3"></div><div class="hm" data-l="4"></div><span>More</span></div>' +
             '</div></div>';

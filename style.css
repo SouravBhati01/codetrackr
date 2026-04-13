@@ -43,10 +43,16 @@ body {
     color: var(--text);
     line-height: 1.6;
     min-height: 100vh;
+    min-height: 100dvh;
     overflow-x: hidden;
     width: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+button, .platform-card, .stat-card, .recent-chip, .search-btn, .footer-link {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 a { color: inherit; text-decoration: none; }
@@ -115,11 +121,12 @@ input { font-family: inherit; }
 .app {
     position: relative;
     z-index: 1;
-    max-width: 800px;
+    max-width: 860px;
     width: 100%;
     margin: 0 auto;
     padding: 0 20px;
     min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
@@ -1322,6 +1329,7 @@ input { font-family: inherit; }
    ═══════════════════════════════ */
 .heatmap-wrap {
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     padding-bottom: 6px;
     scrollbar-width: thin;
     scrollbar-color: var(--s3) transparent;
@@ -1329,12 +1337,18 @@ input { font-family: inherit; }
 .heatmap-wrap::-webkit-scrollbar { height: 5px; }
 .heatmap-wrap::-webkit-scrollbar-thumb { background: var(--s3); border-radius: 10px; }
 
+.heatmap-inner {
+    display: inline-block;
+    min-width: 100%;
+}
+
 .heatmap-months {
     display: flex;
     font-size: 0.65rem;
     color: var(--t3);
     margin-bottom: 4px;
     user-select: none;
+    white-space: nowrap;
 }
 
 .heatmap-grid {
@@ -1607,8 +1621,10 @@ a.footer-link[data-platform]:hover { color: var(--lc); }
     .diff-label { font-size: 0.75rem; }
     .diff-pct { font-size: 0.68rem; }
 
-    .stat-grid { grid-template-columns: 1fr; gap: 10px; }
-    .stat-card { padding: 14px; min-height: 44px; }
+    .stat-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .stat-card { padding: 12px; min-height: 44px; gap: 10px; }
+    .stat-val { font-size: 0.95rem; }
+    .stat-lbl { font-size: 0.7rem; }
     .detail-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
     .detail-item { padding: 10px 6px; }
     .detail-val { font-size: 0.95rem; }
