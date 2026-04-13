@@ -1,0 +1,12 @@
+{
+  "name": "codetrackr",
+  "version": "1.0.0",
+  "description": "Multi-platform coding stats tracker — LeetCode, Codeforces, HackerRank",
+  "private": true,
+  "scripts": {},
+  "author": "Sourav Rajput",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^7.1.1"
+  }
+}

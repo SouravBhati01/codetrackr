@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>CodeTrackr — Multi-Platform Coding Stats Tracker</title>
+
+    <!-- SEO Meta -->
+    <meta name="description" content="Track your competitive programming progress across LeetCode, Codeforces, and HackerRank. Get live stats, world rankings, compare coders, and view leaderboards — all in one place.">
+    <meta name="keywords" content="LeetCode stats, Codeforces rating, HackerRank progress, competitive programming tracker, coding stats, world ranking, compare coders">
+    <meta name="author" content="Sourav Rajput">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0a0a1a">
+    <meta name="color-scheme" content="dark">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="CodeTrackr — Multi-Platform Coding Stats Tracker">
+    <meta property="og:description" content="Track your competitive programming progress across LeetCode, Codeforces, and HackerRank. Live stats, rankings, and coder comparisons.">
+    <meta property="og:site_name" content="CodeTrackr">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CodeTrackr — Multi-Platform Coding Stats Tracker">
+    <meta name="twitter:description" content="Track your competitive programming progress across LeetCode, Codeforces, and HackerRank. Live stats, rankings, and coder comparisons.">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://codetrackr.vercel.app/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23141422'/%3E%3Cpath d='M8 8l-4 8 4 8' stroke='%2300b8a3' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M24 8l4 8-4 8' stroke='%2300b8a3' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpolyline points='10 22 14.5 13 18 18 24 9' stroke='%23ffa116' stroke-width='2.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='9' r='2' fill='%23ffa116'/%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23141422'/%3E%3Cpath d='M8 8l-4 8 4 8' stroke='%2300b8a3' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M24 8l4 8-4 8' stroke='%2300b8a3' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpolyline points='10 22 14.5 13 18 18 24 9' stroke='%23ffa116' stroke-width='2.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='9' r='2' fill='%23ffa116'/%3E%3C/svg%3E">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "CodeTrackr",
+        "description": "Track your competitive programming progress across LeetCode, Codeforces, and HackerRank.",
+        "url": "https://codetrackr.vercel.app",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web",
+        "author": {
+            "@type": "Person",
+            "name": "Sourav Rajput"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Skip Link (a11y) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Offline Banner -->
+    <div class="offline-banner" id="offline-banner" role="alert" aria-live="assertive">
+        You are offline. Some features may be unavailable.
+    </div>
+
+    <!-- Background Effects (decorative) -->
+    <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow-3" aria-hidden="true"></div>
+
+    <div class="app">
+        <!-- Header -->
+        <header class="header" role="banner">
+            <div class="logo" id="logo-home" tabindex="0" role="button" aria-label="Go to homepage">
+                <div class="logo-icon" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M8 8L4 16l4 8" stroke="#00b8a3" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 8l4 8-4 8" stroke="#00b8a3" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10 22 14.5 13 18 18 24 9" stroke="#ffa116" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="9" r="2" fill="#ffa116"/></svg>
+                </div>
+                <span class="logo-text">Code<span class="logo-accent">Trackr</span></span>
+            </div>
+            <div class="header-badge" aria-label="Multi-platform tracker"><span class="live-dot" aria-hidden="true"></span>Multi-Platform</div>
+        </header>
+
+        <!-- Main Content -->
+        <main id="main-content" role="main">
+
+            <!-- HERO -->
+            <section id="hero-section" aria-label="Platform selection">
+                <div class="hero">
+                    <div class="hero-tag" aria-hidden="true">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00b8a3" stroke-width="2.5" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                        Coding Analytics
+                    </div>
+                    <h1 class="hero-title">Track Progress Across <span class="gradient-text">Platforms</span></h1>
+                    <p class="hero-subtitle">Choose a platform to get stats, world ranking, solved problems, and compare coders.</p>
+                    <div class="platform-grid" role="group" aria-label="Select a coding platform">
+                        <button class="platform-card" data-platform="leetcode" aria-label="View LeetCode stats">
+                            <div class="platform-icon lc-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M16.102 17.93l-2.697 2.607c-.466.467-1.111.662-1.823.662s-1.357-.195-1.824-.662l-4.332-4.363c-.467-.467-.702-1.15-.702-1.863s.235-1.357.702-1.824l4.319-4.38c.467-.467 1.125-.645 1.837-.645s1.357.195 1.823.662l2.697 2.606" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M19.5 12h-12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+                            <span class="platform-name">LeetCode</span>
+                            <span class="platform-status active">Active</span>
+                        </button>
+                        <button class="platform-card" data-platform="codeforces" aria-label="View Codeforces stats">
+                            <div class="platform-icon cf-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="2" y="13" width="4" height="9" rx="1" fill="currentColor" opacity=".4"/><rect x="10" y="8" width="4" height="14" rx="1" fill="currentColor" opacity=".7"/><rect x="18" y="3" width="4" height="19" rx="1" fill="currentColor"/></svg></div>
+                            <span class="platform-name">Codeforces</span>
+                            <span class="platform-status active">Active</span>
+                        </button>
+                        <button class="platform-card" data-platform="hackerrank" aria-label="View HackerRank stats">
+                            <div class="platform-icon hr-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7v10l10 5 10-5V7L12 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M12 22V12M2 7l10 5 10-5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+                            <span class="platform-name">HackerRank</span>
+                            <span class="platform-status active">Active</span>
+                        </button>
+                        <button class="platform-card disabled" data-platform="codechef" aria-label="CodeChef coming soon" aria-disabled="true">
+                            <div class="platform-icon cc-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke="currentColor" stroke-width="1.5"/><path d="M8 14s1.5 2 4 2 4-2 4-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/></svg></div>
+                            <span class="platform-name">CodeChef</span>
+                            <span class="platform-status coming">Coming Soon</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SEARCH -->
+            <section class="hidden" id="search-section" aria-label="Search for a user">
+                <button class="search-back" id="search-back" aria-label="Go back to platform selection">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    Back to Platforms
+                </button>
+                <div class="search-platform-label" id="search-label" aria-live="polite"></div>
+                <div class="search-wrapper">
+                    <form class="search-box" id="search-form" role="search" aria-label="Search for a coder" onsubmit="return false;">
+                        <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                        <label for="user-input" class="sr-only">Username</label>
+                        <input type="text" id="user-input" placeholder="Enter username..." autocomplete="off" spellcheck="false" aria-describedby="error-text" maxlength="40">
+                        <button id="search-btn" class="search-btn" type="button" aria-label="Search">
+                            <span class="btn-text">Search</span>
+                            <div class="btn-loader" aria-hidden="true"><div class="spinner-ring"></div></div>
+                        </button>
+                    </form>
+                    <div class="error-banner" id="error-banner" role="alert" aria-live="assertive">
+                        <div class="error-main">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                            <span id="error-text"></span>
+                        </div>
+                        <div class="error-hint" id="error-hint"></div>
+                    </div>
+                    <nav class="recent-searches" id="recent-searches" aria-label="Recent searches"></nav>
+                </div>
+            </section>
+
+            <!-- SKELETON LOADING -->
+            <section class="hidden" id="skeleton-section" aria-label="Loading" aria-busy="true">
+                <div class="skel-profile skeleton" role="presentation"></div>
+                <div class="skel-row" role="presentation">
+                    <div class="skeleton skel-ring"></div>
+                    <div class="skeleton skel-ring"></div>
+                    <div class="skeleton skel-ring"></div>
+                </div>
+                <div class="skel-row" role="presentation">
+                    <div class="skeleton skel-card"></div>
+                    <div class="skeleton skel-card"></div>
+                    <div class="skeleton skel-card"></div>
+                </div>
+                <div class="skel-row" role="presentation">
+                    <div class="skeleton skel-card"></div>
+                    <div class="skeleton skel-card"></div>
+                </div>
+            </section>
+
+            <!-- STATS (filled by JS) -->
+            <section class="hidden" id="stats-section" aria-label="User statistics" aria-live="polite"></section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer" role="contentinfo">
+            <div class="footer-inner">
+                <div class="footer-top">
+                    <div class="footer-brand">
+                        <div class="footer-logo" aria-hidden="true">
+                            <div class="logo-icon"><svg width="20" height="20" viewBox="0 0 32 32" fill="none"><path d="M8 8L4 16l4 8" stroke="#00b8a3" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 8l4 8-4 8" stroke="#00b8a3" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10 22 14.5 13 18 18 24 9" stroke="#ffa116" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="9" r="2" fill="#ffa116"/></svg></div>
+                            <span class="footer-brand-name">Code<span class="logo-accent">Trackr</span></span>
+                        </div>
+                        <p class="footer-tagline">Track your competitive programming progress across multiple platforms in one place.</p>
+                    </div>
+                    <nav class="footer-links" aria-label="Footer navigation">
+                        <div class="footer-col">
+                            <h4 class="footer-heading">Platforms</h4>
+                            <ul>
+                                <li><a href="#" class="footer-link" data-platform="leetcode">LeetCode</a></li>
+                                <li><a href="#" class="footer-link" data-platform="codeforces">Codeforces</a></li>
+                                <li><a href="#" class="footer-link" data-platform="hackerrank">HackerRank</a></li>
+                                <li><span class="footer-link disabled" aria-disabled="true">CodeChef (Soon)</span></li>
+                            </ul>
+                        </div>
+                        <div class="footer-col">
+                            <h4 class="footer-heading">Features</h4>
+                            <ul>
+                                <li><span class="footer-link">Live Stats</span></li>
+                                <li><span class="footer-link">World Rankings</span></li>
+                                <li><span class="footer-link">Compare Coders</span></li>
+                                <li><span class="footer-link">Leaderboards</span></li>
+                            </ul>
+                        </div>
+                        <div class="footer-col">
+                            <h4 class="footer-heading">Developer</h4>
+                            <ul>
+                                <li><a href="https://github.com/SouravBhati01" class="footer-link" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                                <li><a href="https://www.linkedin.com/in/sourav-rajput-7457b0360" class="footer-link" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                                <li><a href="https://portfoliosourav.vercel.app/" class="footer-link" target="_blank" rel="noopener noreferrer">Portfolio</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <div class="footer-divider" role="separator"></div>
+                <div class="footer-bottom">
+                    <p class="footer-copy">&copy; 2026 Sourav Rajput. All rights reserved.</p>
+                    <p class="footer-built">Built with <span class="footer-heart" aria-label="love">&hearts;</span> for competitive programmers</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
